@@ -1,0 +1,3 @@
+# Bid review contract
+
+Each lot names a deadline, budget in integer cents, and required document codes. Offers contain lot/vendor IDs, submitted time, price in cents, and document codes. An offer is eligible only when it arrives by the deadline, includes every required code, and does not exceed budget. The award is the lowest eligible price, breaking ties by vendor ID; lots without eligible offers are unawarded. Duplicate IDs, unknown lot references, negative prices, and malformed timestamps fail the whole run. This is a transparent mechanical screen; policy, conflicts of interest, and legal review remain human responsibilities.
