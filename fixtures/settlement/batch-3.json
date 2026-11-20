@@ -1,0 +1,16 @@
+{
+  "batch_id": "B3",
+  "events": [
+    {
+      "event_id": "B3-E1",
+      "kind": "receipt",
+      "receipt_id": "R1",
+      "revision": 3,
+      "lot_id": "L1",
+      "accepted_ranges": [
+        {"from_date": "2026-04-01", "to_date": "2026-04-02"}
+      ]
+    },
+    {"event_id": "B3-E2", "kind": "settle", "cash_budget_cents": 0}
+  ]
+}
