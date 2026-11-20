@@ -1,11 +1,16 @@
 """Procurement offer review, post-award settlement, and mirror publication."""
 
+from .costcompare import (  # noqa: F401
+    CostCompareError,
+    compare_bid_costs,
+    load_json_file,
+    verify_allocation,
+)
 from .publishing import (  # noqa: F401
     PublishError,
     apply_page,
     build_bundle,
     canonical_mirror_bytes,
-    load_json_file,
     mirror_sha256,
     validate_bundle,
     validate_mirror,
@@ -23,6 +28,7 @@ from .settlement import (  # noqa: F401
 
 __all__ = [
     "BatchError",
+    "CostCompareError",
     "ExportError",
     "PublishError",
     "SettleError",
@@ -31,6 +37,7 @@ __all__ = [
     "apply_page",
     "build_bundle",
     "canonical_mirror_bytes",
+    "compare_bid_costs",
     "daily_amounts",
     "initialize_ledger",
     "load_json_file",
@@ -38,5 +45,6 @@ __all__ = [
     "validate_bundle",
     "validate_mirror",
     "validate_release",
+    "verify_allocation",
 ]
 

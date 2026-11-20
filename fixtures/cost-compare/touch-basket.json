@@ -1,0 +1,15 @@
+{
+  "lot_id": "LOT-2",
+  "offer_ids": [
+    "O7",
+    "O6"
+  ],
+  "items": [
+    {
+      "site_id": "X",
+      "service_id": "Q",
+      "quantity": 1,
+      "unit": "visit"
+    }
+  ]
+}

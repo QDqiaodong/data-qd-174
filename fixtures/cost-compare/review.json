@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "lots": [
+    {
+      "lot_id": "LOT-1",
+      "offers": [
+        {
+          "offer_id": "O1",
+          "vendor_id": "V1",
+          "price_cents": 1500,
+          "eligible": true,
+          "reasons": [],
+          "awarded": true,
+          "selection_reasons": []
+        },
+        {
+          "offer_id": "O2",
+          "vendor_id": "V2",
+          "price_cents": 1500,
+          "eligible": true,
+          "reasons": [],
+          "awarded": false,
+          "selection_reasons": [
+            "objective_tradeoff"
+          ]
+        },
+        {
+          "offer_id": "O3",
+          "vendor_id": "V3",
+          "price_cents": 12,
+          "eligible": false,
+          "reasons": [
+            "over_budget"
+          ],
+          "awarded": false,
+          "selection_reasons": []
+        },
+        {
+          "offer_id": "O4",
+          "vendor_id": "V4",
+          "price_cents": 1500,
+          "eligible": true,
+          "reasons": [],
+          "awarded": false,
+          "selection_reasons": [
+            "objective_tradeoff"
+          ]
+        },
+        {
+          "offer_id": "O5",
+          "vendor_id": "V5",
+          "price_cents": 200,
+          "eligible": true,
+          "reasons": [],
+          "awarded": false,
+          "selection_reasons": [
+            "objective_tradeoff"
+          ]
+        }
+      ],
+      "award_offer_id": "O1",
+      "award_vendor_id": "V1",
+      "awarded": true
+    },
+    {
+      "lot_id": "LOT-2",
+      "offers": [
+        {
+          "offer_id": "O7",
+          "vendor_id": "V4",
+          "price_cents": 200,
+          "eligible": true,
+          "reasons": [],
+          "awarded": false,
+          "selection_reasons": [
+            "objective_tradeoff"
+          ]
+        },
+        {
+          "offer_id": "O6",
+          "vendor_id": "V6",
+          "price_cents": 200,
+          "eligible": true,
+          "reasons": [],
+          "awarded": true,
+          "selection_reasons": []
+        }
+      ],
+      "award_offer_id": "O6",
+      "award_vendor_id": "V6",
+      "awarded": true
+    }
+  ],
+  "awarded": 2,
+  "package": {
+    "budget_cents": 100000,
+    "awarded_total_cents": 1700,
+    "remaining_cents": 98300,
+    "lots_total": 2,
+    "lots_awarded": 2,
+    "vendors": []
+  }
+}

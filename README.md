@@ -13,6 +13,14 @@ Pages are small all-or-nothing transactions that stay query-valid at every
 boundary, and a receiver can judge each page from the page plus its current
 mirror alone. See [`docs/publishing.md`](docs/publishing.md).
 
+`bid-cost-compare` is an internal pre-award cost analysis. It checks whether
+each supplier annex (line-level price ranges plus site and service subtotals)
+is self-consistent against the reviewed offer price, then — for annexes whose
+basket quantities match exactly — reports the minimum and maximum achievable
+basket total, each reached by its own complete legal allocation, and pairwise
+verdicts on which offer is provably cheaper. See
+[`docs/cost-compare.md`](docs/cost-compare.md).
+
 ```sh
 uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python -r requirements-build.lock
@@ -26,6 +34,10 @@ uv pip install --python .venv/bin/python --no-build-isolation --no-deps .
 .venv/bin/bid-publish apply --base fixtures/publishing/base-mirror.json \
   --page fixtures/publishing/page-0.json --max-ops 4 \
   --output run/mirror-4.json
+.venv/bin/bid-cost-compare --review fixtures/cost-compare/review.json \
+  --annex fixtures/cost-compare/annex.json \
+  --basket fixtures/cost-compare/basket.json \
+  --output run/cost-result.json
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
@@ -63,3 +75,10 @@ withdraws one award, and adds another. With `max-ops 4` the constrained
 handover fills one page and the independent changes a second page, ending
 at position 5. Regenerate with
 `python3 fixtures/publishing/generate_fixtures.py`.
+
+Cost comparison fixture summary: five offers on one lot include a strictly
+cheaper provable winner, an offer fixed at one basket total, an annex whose
+two subtotal grand totals match the price yet admit no allocation (with a
+Hoffman-cut proof), and a balanced annex missing a basket line; a second lot
+holds two offers whose intervals only touch at a boundary. Regenerate with
+`python3 fixtures/cost-compare/generate_fixtures.py`.

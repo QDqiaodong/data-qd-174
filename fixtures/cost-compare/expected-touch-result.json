@@ -1,0 +1,308 @@
+{
+  "schema_version": 1,
+  "lot_id": "LOT-2",
+  "basket": {
+    "items": [
+      {
+        "site_id": "X",
+        "service_id": "Q",
+        "quantity": 1,
+        "unit": "visit",
+        "base_quantity": 1
+      }
+    ],
+    "offer_ids": [
+      "O6",
+      "O7"
+    ]
+  },
+  "offers": [
+    {
+      "lot_id": "LOT-2",
+      "offer_id": "O6",
+      "reviewed_price_cents": 200,
+      "site_totals_sum_cents": 200,
+      "service_totals_sum_cents": 200,
+      "annex_self_consistent": true,
+      "total_mismatches": [],
+      "conflict": null,
+      "sample_allocation": [
+        {
+          "site_id": "X",
+          "service_id": "P",
+          "quantity": 1,
+          "unit": "hour",
+          "min_cents": 40,
+          "max_cents": 40,
+          "amount_cents": 40
+        },
+        {
+          "site_id": "X",
+          "service_id": "Q",
+          "quantity": 1,
+          "unit": "visit",
+          "min_cents": 60,
+          "max_cents": 60,
+          "amount_cents": 60
+        },
+        {
+          "site_id": "Y",
+          "service_id": "P",
+          "quantity": 1,
+          "unit": "hour",
+          "min_cents": 60,
+          "max_cents": 60,
+          "amount_cents": 60
+        },
+        {
+          "site_id": "Y",
+          "service_id": "Q",
+          "quantity": 1,
+          "unit": "visit",
+          "min_cents": 40,
+          "max_cents": 40,
+          "amount_cents": 40
+        }
+      ],
+      "basket_match": {
+        "matches": true,
+        "missing_lines": [],
+        "quantity_mismatches": []
+      },
+      "participates_in_comparison": true,
+      "exclusion_reasons": [],
+      "basket_min_cents": 60,
+      "basket_max_cents": 60,
+      "min_allocation": [
+        {
+          "site_id": "X",
+          "service_id": "P",
+          "quantity": 1,
+          "unit": "hour",
+          "min_cents": 40,
+          "max_cents": 40,
+          "amount_cents": 40
+        },
+        {
+          "site_id": "X",
+          "service_id": "Q",
+          "quantity": 1,
+          "unit": "visit",
+          "min_cents": 60,
+          "max_cents": 60,
+          "amount_cents": 60
+        },
+        {
+          "site_id": "Y",
+          "service_id": "P",
+          "quantity": 1,
+          "unit": "hour",
+          "min_cents": 60,
+          "max_cents": 60,
+          "amount_cents": 60
+        },
+        {
+          "site_id": "Y",
+          "service_id": "Q",
+          "quantity": 1,
+          "unit": "visit",
+          "min_cents": 40,
+          "max_cents": 40,
+          "amount_cents": 40
+        }
+      ],
+      "max_allocation": [
+        {
+          "site_id": "X",
+          "service_id": "P",
+          "quantity": 1,
+          "unit": "hour",
+          "min_cents": 40,
+          "max_cents": 40,
+          "amount_cents": 40
+        },
+        {
+          "site_id": "X",
+          "service_id": "Q",
+          "quantity": 1,
+          "unit": "visit",
+          "min_cents": 60,
+          "max_cents": 60,
+          "amount_cents": 60
+        },
+        {
+          "site_id": "Y",
+          "service_id": "P",
+          "quantity": 1,
+          "unit": "hour",
+          "min_cents": 60,
+          "max_cents": 60,
+          "amount_cents": 60
+        },
+        {
+          "site_id": "Y",
+          "service_id": "Q",
+          "quantity": 1,
+          "unit": "visit",
+          "min_cents": 40,
+          "max_cents": 40,
+          "amount_cents": 40
+        }
+      ]
+    },
+    {
+      "lot_id": "LOT-2",
+      "offer_id": "O7",
+      "reviewed_price_cents": 200,
+      "site_totals_sum_cents": 200,
+      "service_totals_sum_cents": 200,
+      "annex_self_consistent": true,
+      "total_mismatches": [],
+      "conflict": null,
+      "sample_allocation": [
+        {
+          "site_id": "X",
+          "service_id": "P",
+          "quantity": 1,
+          "unit": "hour",
+          "min_cents": 40,
+          "max_cents": 80,
+          "amount_cents": 80
+        },
+        {
+          "site_id": "X",
+          "service_id": "Q",
+          "quantity": 1,
+          "unit": "visit",
+          "min_cents": 20,
+          "max_cents": 60,
+          "amount_cents": 20
+        },
+        {
+          "site_id": "Y",
+          "service_id": "P",
+          "quantity": 1,
+          "unit": "hour",
+          "min_cents": 20,
+          "max_cents": 60,
+          "amount_cents": 20
+        },
+        {
+          "site_id": "Y",
+          "service_id": "Q",
+          "quantity": 1,
+          "unit": "visit",
+          "min_cents": 40,
+          "max_cents": 80,
+          "amount_cents": 80
+        }
+      ],
+      "basket_match": {
+        "matches": true,
+        "missing_lines": [],
+        "quantity_mismatches": []
+      },
+      "participates_in_comparison": true,
+      "exclusion_reasons": [],
+      "basket_min_cents": 20,
+      "basket_max_cents": 60,
+      "min_allocation": [
+        {
+          "site_id": "X",
+          "service_id": "P",
+          "quantity": 1,
+          "unit": "hour",
+          "min_cents": 40,
+          "max_cents": 80,
+          "amount_cents": 80
+        },
+        {
+          "site_id": "X",
+          "service_id": "Q",
+          "quantity": 1,
+          "unit": "visit",
+          "min_cents": 20,
+          "max_cents": 60,
+          "amount_cents": 20
+        },
+        {
+          "site_id": "Y",
+          "service_id": "P",
+          "quantity": 1,
+          "unit": "hour",
+          "min_cents": 20,
+          "max_cents": 60,
+          "amount_cents": 20
+        },
+        {
+          "site_id": "Y",
+          "service_id": "Q",
+          "quantity": 1,
+          "unit": "visit",
+          "min_cents": 40,
+          "max_cents": 80,
+          "amount_cents": 80
+        }
+      ],
+      "max_allocation": [
+        {
+          "site_id": "X",
+          "service_id": "P",
+          "quantity": 1,
+          "unit": "hour",
+          "min_cents": 40,
+          "max_cents": 80,
+          "amount_cents": 40
+        },
+        {
+          "site_id": "X",
+          "service_id": "Q",
+          "quantity": 1,
+          "unit": "visit",
+          "min_cents": 20,
+          "max_cents": 60,
+          "amount_cents": 60
+        },
+        {
+          "site_id": "Y",
+          "service_id": "P",
+          "quantity": 1,
+          "unit": "hour",
+          "min_cents": 20,
+          "max_cents": 60,
+          "amount_cents": 60
+        },
+        {
+          "site_id": "Y",
+          "service_id": "Q",
+          "quantity": 1,
+          "unit": "visit",
+          "min_cents": 40,
+          "max_cents": 80,
+          "amount_cents": 40
+        }
+      ]
+    }
+  ],
+  "pairwise_verdicts": [
+    {
+      "offer_ids": [
+        "O6",
+        "O7"
+      ],
+      "verdict": "indeterminate",
+      "cheaper_offer_id": null,
+      "note": "price intervals only touch at a boundary",
+      "intervals_cents": {
+        "O6": {
+          "min": 60,
+          "max": 60
+        },
+        "O7": {
+          "min": 20,
+          "max": 60
+        }
+      }
+    }
+  ]
+}

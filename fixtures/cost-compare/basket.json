@@ -1,0 +1,24 @@
+{
+  "lot_id": "LOT-1",
+  "offer_ids": [
+    "O1",
+    "O2",
+    "O3",
+    "O4",
+    "O5"
+  ],
+  "items": [
+    {
+      "site_id": "X",
+      "service_id": "Q",
+      "quantity": 2,
+      "unit": "block"
+    },
+    {
+      "site_id": "Y",
+      "service_id": "P",
+      "quantity": 16,
+      "unit": "hour"
+    }
+  ]
+}
