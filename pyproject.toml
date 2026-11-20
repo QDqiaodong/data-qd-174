@@ -11,6 +11,7 @@ dependencies = []
 [project.scripts]
 bid-review = "procurement.cli:main"
 bid-settle = "procurement.settle_cli:main"
+bid-publish = "procurement.publish_cli:main"
 
 [tool.setuptools]
 packages = ["procurement"]

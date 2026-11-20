@@ -7,6 +7,12 @@ continues the post-award lifecycle: versioned acceptance receipts, invoices,
 per-invoice cash, recovery of overpayments against the same supplier's later
 payables, and batch reports. See [`docs/settlement.md`](docs/settlement.md).
 
+`bid-publish` then turns a complete release built from `bid-review` package
+results into paged changes against an information station's current mirror.
+Pages are small all-or-nothing transactions that stay query-valid at every
+boundary, and a receiver can judge each page from the page plus its current
+mirror alone. See [`docs/publishing.md`](docs/publishing.md).
+
 ```sh
 uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python -r requirements-build.lock
@@ -14,6 +20,12 @@ uv pip install --python .venv/bin/python --no-build-isolation --no-deps .
 .venv/bin/bid-review --input fixtures/input.json --output run/decisions.json
 .venv/bin/bid-settle init  --input fixtures/settlement/package.json --state run/state.json
 .venv/bin/bid-settle apply --state run/state.json --batch fixtures/settlement/batch-1.json --output run/b1.json
+.venv/bin/bid-publish build --base fixtures/publishing/base-mirror.json \
+  --release fixtures/publishing/release.json --max-ops 4 \
+  --output run/bundle.json
+.venv/bin/bid-publish apply --base fixtures/publishing/base-mirror.json \
+  --page fixtures/publishing/page-0.json --max-ops 4 \
+  --output run/mirror-4.json
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
@@ -43,3 +55,11 @@ Settlement fixture summary: 3 awarded lots (L1: 100 cents over three days,
 L2: 50, L3: 40). Batch 1 pays 67 cents on I1; batch 2 revokes day two and uses
 I1's 33-cent recovery to clear I2 before paying 17 cents cash with 3 cents
 unused; batch 3 restores day two and reopens 33 cents due on I1.
+
+Publishing fixture summary: a mirror at position 3 with three suppliers and
+three announcements. The release retires one supplier, hands its public
+reference to a new supplier while moving two announcements onto it,
+withdraws one award, and adds another. With `max-ops 4` the constrained
+handover fills one page and the independent changes a second page, ending
+at position 5. Regenerate with
+`python3 fixtures/publishing/generate_fixtures.py`.

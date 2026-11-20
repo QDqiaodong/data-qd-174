@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "stream_id": "demo-stream-2026",
+  "from_position": 3,
+  "before_sha256": "57e855b3afdc36ad30589e16cfda70221675bdf35b08bf696811f999ccdde8d5",
+  "after_sha256": "3012641fb28a971594fbb979bc014240a9a4790f8439b1f586eded124793d487",
+  "operations": [
+    {
+      "table": "suppliers",
+      "action": "delete",
+      "key": "V-ALPHA"
+    },
+    {
+      "table": "suppliers",
+      "action": "upsert",
+      "key": "V-DELTA",
+      "row": {
+        "vendor_id": "V-DELTA",
+        "public_ref": "PUB-100"
+      }
+    },
+    {
+      "table": "awards",
+      "action": "upsert",
+      "key": [
+        "PKG-A",
+        "LOT-1"
+      ],
+      "row": {
+        "package_id": "PKG-A",
+        "lot_id": "LOT-1",
+        "offer_id": "OFFER-A1-NEW",
+        "vendor_id": "V-DELTA",
+        "price_cents": 41000
+      }
+    },
+    {
+      "table": "awards",
+      "action": "upsert",
+      "key": [
+        "PKG-A",
+        "LOT-2"
+      ],
+      "row": {
+        "package_id": "PKG-A",
+        "lot_id": "LOT-2",
+        "offer_id": "OFFER-A2",
+        "vendor_id": "V-DELTA",
+        "price_cents": 16900
+      }
+    }
+  ]
+}

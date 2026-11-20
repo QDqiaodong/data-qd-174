@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "stream_id": "demo-stream-2026",
+  "position": 3,
+  "suppliers": [
+    {
+      "vendor_id": "V-ALPHA",
+      "public_ref": "PUB-100"
+    },
+    {
+      "vendor_id": "V-BETA",
+      "public_ref": "PUB-200"
+    },
+    {
+      "vendor_id": "V-GAMMA",
+      "public_ref": "PUB-300"
+    }
+  ],
+  "awards": [
+    {
+      "package_id": "PKG-A",
+      "lot_id": "LOT-1",
+      "offer_id": "OFFER-A1",
+      "vendor_id": "V-ALPHA",
+      "price_cents": 42000
+    },
+    {
+      "package_id": "PKG-A",
+      "lot_id": "LOT-2",
+      "offer_id": "OFFER-A2",
+      "vendor_id": "V-BETA",
+      "price_cents": 17500
+    },
+    {
+      "package_id": "PKG-B",
+      "lot_id": "LOT-1",
+      "offer_id": "OFFER-B1",
+      "vendor_id": "V-GAMMA",
+      "price_cents": 9900
+    }
+  ]
+}
