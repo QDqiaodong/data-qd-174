@@ -1,0 +1,42 @@
+{
+  "awarded": 1,
+  "package": {
+    "budget_cents": 5000000,
+    "awarded_total_cents": 4000000,
+    "remaining_cents": 1000000,
+    "lots_total": 1,
+    "lots_awarded": 1,
+    "vendors": [
+      {
+        "vendor_id": "V1",
+        "concurrent_lot_capacity": 1,
+        "peak_concurrent_lots": 1,
+        "awarded_lot_ids": [
+          "LOT-A"
+        ]
+      }
+    ]
+  },
+  "lots": [
+    {
+      "lot_id": "LOT-A",
+      "service_start": "2026-01-01",
+      "service_end": "2026-04-01",
+      "budget_cents": 5000000,
+      "offers": [
+        {
+          "offer_id": "O1",
+          "vendor_id": "V1",
+          "price_cents": 4000000,
+          "eligible": true,
+          "reasons": [],
+          "awarded": true,
+          "selection_reasons": []
+        }
+      ],
+      "award_offer_id": "O1",
+      "award_vendor_id": "V1",
+      "awarded": true
+    }
+  ]
+}

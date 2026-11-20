@@ -13,6 +13,7 @@ bid-review = "procurement.cli:main"
 bid-settle = "procurement.settle_cli:main"
 bid-publish = "procurement.publish_cli:main"
 bid-cost-compare = "procurement.cost_compare_cli:main"
+bid-response-audit = "procurement.response_audit_cli:main"
 
 [tool.setuptools]
 packages = ["procurement"]

@@ -1,0 +1,103 @@
+{
+  "awarded": 2,
+  "package": {
+    "budget_cents": 90000,
+    "awarded_total_cents": 60000,
+    "remaining_cents": 30000,
+    "lots_total": 3,
+    "lots_awarded": 2,
+    "vendors": [
+      {
+        "vendor_id": "V1",
+        "concurrent_lot_capacity": 1,
+        "peak_concurrent_lots": 1,
+        "awarded_lot_ids": [
+          "LOT-A"
+        ]
+      },
+      {
+        "vendor_id": "V2",
+        "concurrent_lot_capacity": 1,
+        "peak_concurrent_lots": 1,
+        "awarded_lot_ids": [
+          "LOT-B"
+        ]
+      }
+    ]
+  },
+  "lots": [
+    {
+      "lot_id": "LOT-A",
+      "service_start": "2026-05-01",
+      "service_end": "2026-06-01",
+      "budget_cents": 50000,
+      "offers": [
+        {
+          "offer_id": "OA1",
+          "vendor_id": "V1",
+          "price_cents": 40000,
+          "eligible": true,
+          "reasons": [],
+          "awarded": true,
+          "selection_reasons": []
+        },
+        {
+          "offer_id": "OA2",
+          "vendor_id": "V2",
+          "price_cents": 42000,
+          "eligible": true,
+          "reasons": [],
+          "awarded": false,
+          "selection_reasons": [
+            "objective_tradeoff"
+          ]
+        }
+      ],
+      "award_offer_id": "OA1",
+      "award_vendor_id": "V1",
+      "awarded": true
+    },
+    {
+      "lot_id": "LOT-B",
+      "service_start": "2026-05-01",
+      "service_end": "2026-06-01",
+      "budget_cents": 30000,
+      "offers": [
+        {
+          "offer_id": "OB1",
+          "vendor_id": "V2",
+          "price_cents": 20000,
+          "eligible": true,
+          "reasons": [],
+          "awarded": true,
+          "selection_reasons": []
+        }
+      ],
+      "award_offer_id": "OB1",
+      "award_vendor_id": "V2",
+      "awarded": true
+    },
+    {
+      "lot_id": "LOT-C",
+      "service_start": "2026-07-01",
+      "service_end": "2026-08-01",
+      "budget_cents": 10000,
+      "offers": [
+        {
+          "offer_id": "OC1",
+          "vendor_id": "V1",
+          "price_cents": 12000,
+          "eligible": false,
+          "reasons": [
+            "over_budget"
+          ],
+          "awarded": false,
+          "selection_reasons": []
+        }
+      ],
+      "award_offer_id": null,
+      "award_vendor_id": null,
+      "awarded": false
+    }
+  ]
+}

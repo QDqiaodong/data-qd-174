@@ -1,4 +1,4 @@
-"""Procurement offer review, post-award settlement, and mirror publication."""
+"""Procurement offer review, post-award settlement, publication and audits."""
 
 from .costcompare import (  # noqa: F401
     CostCompareError,
@@ -16,6 +16,10 @@ from .publishing import (  # noqa: F401
     validate_mirror,
     validate_release,
 )
+from .responseaudit import (  # noqa: F401
+    ResponseAuditError,
+    audit_responses,
+)
 from .settlement import (  # noqa: F401
     BatchError,
     ExportError,
@@ -31,10 +35,12 @@ __all__ = [
     "CostCompareError",
     "ExportError",
     "PublishError",
+    "ResponseAuditError",
     "SettleError",
     "StateError",
     "apply_batch",
     "apply_page",
+    "audit_responses",
     "build_bundle",
     "canonical_mirror_bytes",
     "compare_bid_costs",

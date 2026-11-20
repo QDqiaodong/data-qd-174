@@ -1,0 +1,255 @@
+{
+  "closed_through": "2026-04-30T23:59:59+00:00",
+  "lots": [
+    {
+      "lot_id": "LOT-A",
+      "vendor_id": "V1",
+      "sites": [
+        {
+          "site_id": "SITE-1",
+          "sla_minutes": 5,
+          "search_minutes": 20,
+          "tickets_total": 2,
+          "checkins_total": 1,
+          "max_pairs": 1,
+          "tickets": [
+            {
+              "ticket_id": "TA1",
+              "opened_at": "2026-04-01T09:00:00+00:00",
+              "possible_checkin_ids": [
+                "CA1"
+              ],
+              "can_be_unmatched": true,
+              "confirmed_checkin_id": null,
+              "verdict": "needs_review",
+              "possible_verdicts": [
+                "late",
+                "no_checkin"
+              ]
+            },
+            {
+              "ticket_id": "TA2",
+              "opened_at": "2026-04-01T09:03:00+00:00",
+              "possible_checkin_ids": [
+                "CA1"
+              ],
+              "can_be_unmatched": true,
+              "confirmed_checkin_id": null,
+              "verdict": "needs_review",
+              "possible_verdicts": [
+                "on_time",
+                "no_checkin"
+              ]
+            }
+          ]
+        },
+        {
+          "site_id": "SITE-2",
+          "sla_minutes": 5,
+          "search_minutes": 20,
+          "tickets_total": 1,
+          "checkins_total": 2,
+          "max_pairs": 1,
+          "tickets": [
+            {
+              "ticket_id": "TB1",
+              "opened_at": "2026-04-01T09:00:00+00:00",
+              "possible_checkin_ids": [
+                "CB1",
+                "CB2"
+              ],
+              "can_be_unmatched": false,
+              "confirmed_checkin_id": null,
+              "verdict": "on_time",
+              "possible_verdicts": [
+                "on_time"
+              ]
+            }
+          ]
+        },
+        {
+          "site_id": "SITE-3",
+          "sla_minutes": 5,
+          "search_minutes": 20,
+          "tickets_total": 2,
+          "checkins_total": 2,
+          "max_pairs": 2,
+          "tickets": [
+            {
+              "ticket_id": "TC1",
+              "opened_at": "2026-04-01T09:00:00+00:00",
+              "possible_checkin_ids": [
+                "CC1"
+              ],
+              "can_be_unmatched": false,
+              "confirmed_checkin_id": "CC1",
+              "verdict": "on_time",
+              "possible_verdicts": [
+                "on_time"
+              ]
+            },
+            {
+              "ticket_id": "TC2",
+              "opened_at": "2026-04-01T09:05:00+00:00",
+              "possible_checkin_ids": [
+                "CC2"
+              ],
+              "can_be_unmatched": false,
+              "confirmed_checkin_id": "CC2",
+              "verdict": "on_time",
+              "possible_verdicts": [
+                "on_time"
+              ]
+            }
+          ]
+        },
+        {
+          "site_id": "SITE-4",
+          "sla_minutes": 5,
+          "search_minutes": 20,
+          "tickets_total": 2,
+          "checkins_total": 2,
+          "max_pairs": 2,
+          "tickets": [
+            {
+              "ticket_id": "TD1",
+              "opened_at": "2026-04-01T09:00:00+00:00",
+              "possible_checkin_ids": [
+                "CD1"
+              ],
+              "can_be_unmatched": false,
+              "confirmed_checkin_id": "CD1",
+              "verdict": "on_time",
+              "possible_verdicts": [
+                "on_time"
+              ]
+            },
+            {
+              "ticket_id": "TD2",
+              "opened_at": "2026-04-01T09:00:00+00:00",
+              "possible_checkin_ids": [
+                "CD2"
+              ],
+              "can_be_unmatched": false,
+              "confirmed_checkin_id": "CD2",
+              "verdict": "on_time",
+              "possible_verdicts": [
+                "on_time"
+              ]
+            }
+          ]
+        },
+        {
+          "site_id": "SITE-5",
+          "sla_minutes": 5,
+          "search_minutes": 20,
+          "tickets_total": 1,
+          "checkins_total": 2,
+          "max_pairs": 1,
+          "tickets": [
+            {
+              "ticket_id": "TF1",
+              "opened_at": "2026-04-01T09:00:00+00:00",
+              "possible_checkin_ids": [
+                "CF1",
+                "CF2"
+              ],
+              "can_be_unmatched": false,
+              "confirmed_checkin_id": null,
+              "verdict": "needs_review",
+              "possible_verdicts": [
+                "on_time",
+                "late"
+              ]
+            }
+          ]
+        },
+        {
+          "site_id": "SITE-6",
+          "sla_minutes": 5,
+          "search_minutes": 20,
+          "tickets_total": 2,
+          "checkins_total": 1,
+          "max_pairs": 1,
+          "tickets": [
+            {
+              "ticket_id": "TG1",
+              "opened_at": "2026-04-01T09:00:00+00:00",
+              "possible_checkin_ids": [
+                "CG1"
+              ],
+              "can_be_unmatched": false,
+              "confirmed_checkin_id": "CG1",
+              "verdict": "late",
+              "possible_verdicts": [
+                "late"
+              ]
+            },
+            {
+              "ticket_id": "TG2",
+              "opened_at": "2026-04-01T10:00:00+00:00",
+              "possible_checkin_ids": [],
+              "can_be_unmatched": true,
+              "confirmed_checkin_id": null,
+              "verdict": "no_checkin",
+              "possible_verdicts": [
+                "no_checkin"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lot_id": "LOT-B",
+      "vendor_id": "V2",
+      "sites": [
+        {
+          "site_id": "SITE-1",
+          "sla_minutes": 10,
+          "search_minutes": 30,
+          "tickets_total": 1,
+          "checkins_total": 1,
+          "max_pairs": 1,
+          "tickets": [
+            {
+              "ticket_id": "TE1",
+              "opened_at": "2026-04-01T09:00:00+00:00",
+              "possible_checkin_ids": [
+                "CE1"
+              ],
+              "can_be_unmatched": false,
+              "confirmed_checkin_id": "CE1",
+              "verdict": "on_time",
+              "possible_verdicts": [
+                "on_time"
+              ]
+            }
+          ]
+        },
+        {
+          "site_id": "SITE-2",
+          "sla_minutes": 10,
+          "search_minutes": 30,
+          "tickets_total": 0,
+          "checkins_total": 0,
+          "max_pairs": 0,
+          "tickets": []
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "lots": 2,
+    "sites": 8,
+    "tickets": 11,
+    "checkins": 11,
+    "max_pairs": 9,
+    "verdicts": {
+      "on_time": 6,
+      "late": 1,
+      "no_checkin": 1,
+      "needs_review": 3
+    }
+  }
+}

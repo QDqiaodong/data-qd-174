@@ -21,6 +21,15 @@ basket total, each reached by its own complete legal allocation, and pairwise
 verdicts on which offer is provably cheaper. See
 [`docs/cost-compare.md`](docs/cost-compare.md).
 
+`bid-response-audit` reconciles the buyer's repair tickets with the awarded
+supplier's check-ins after the award. It reports every maximum reconciliation
+that fits the site's single response queue, so each ticket gets only the
+conclusions that hold across all of them: a confirmable check-in ID, a
+confirmable `on_time` / `late` / `no_checkin` verdict, or `needs_review` with
+the remaining possibilities. It never re-runs the award, generates acceptance
+receipts or deductions, and only audits the closed local export. See
+[`docs/response-audit.md`](docs/response-audit.md).
+
 ```sh
 uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python -r requirements-build.lock
@@ -38,6 +47,9 @@ uv pip install --python .venv/bin/python --no-build-isolation --no-deps .
   --annex fixtures/cost-compare/annex.json \
   --basket fixtures/cost-compare/basket.json \
   --output run/cost-result.json
+.venv/bin/bid-response-audit --review fixtures/response-audit/review.json \
+  --input fixtures/response-audit/logs.json \
+  --output run/response-report.json
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
@@ -75,6 +87,14 @@ withdraws one award, and adds another. With `max-ops 4` the constrained
 handover fills one page and the independent changes a second page, ending
 at position 5. Regenerate with
 `python3 fixtures/publishing/generate_fixtures.py`.
+
+Response-audit fixture summary: two awarded lots and eight site queues cover
+ambiguous shared check-ins, an on-time claim without a confirmable ID, a
+check-in that cannot join any maximum scheme, interchangeable on-time/late
+pairs, a confirmed late pairing, a missing check-in, a same-numbered site
+under two lots, and an empty queue. A separate 30,000-ticket / 30,000-check-in
+benchmark runs in about a second; regenerate with
+`python3 fixtures/response-audit/generate_fixtures.py`.
 
 Cost comparison fixture summary: five offers on one lot include a strictly
 cheaper provable winner, an offer fixed at one basket total, an annex whose

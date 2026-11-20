@@ -1,0 +1,200 @@
+{
+  "closed_through": "2026-04-30T23:59:59+00:00",
+  "sites": [
+    {
+      "lot_id": "LOT-A",
+      "site_id": "SITE-1",
+      "sla_minutes": 5,
+      "search_minutes": 20
+    },
+    {
+      "lot_id": "LOT-A",
+      "site_id": "SITE-2",
+      "sla_minutes": 5,
+      "search_minutes": 20
+    },
+    {
+      "lot_id": "LOT-A",
+      "site_id": "SITE-3",
+      "sla_minutes": 5,
+      "search_minutes": 20
+    },
+    {
+      "lot_id": "LOT-A",
+      "site_id": "SITE-4",
+      "sla_minutes": 5,
+      "search_minutes": 20
+    },
+    {
+      "lot_id": "LOT-A",
+      "site_id": "SITE-5",
+      "sla_minutes": 5,
+      "search_minutes": 20
+    },
+    {
+      "lot_id": "LOT-A",
+      "site_id": "SITE-6",
+      "sla_minutes": 5,
+      "search_minutes": 20
+    },
+    {
+      "lot_id": "LOT-B",
+      "site_id": "SITE-1",
+      "sla_minutes": 10,
+      "search_minutes": 30
+    },
+    {
+      "lot_id": "LOT-B",
+      "site_id": "SITE-2",
+      "sla_minutes": 10,
+      "search_minutes": 30
+    }
+  ],
+  "tickets": [
+    {
+      "ticket_id": "TA1",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-1",
+      "opened_at": "2026-04-01T09:00:00+00:00"
+    },
+    {
+      "ticket_id": "TA2",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-1",
+      "opened_at": "2026-04-01T09:03:00+00:00"
+    },
+    {
+      "ticket_id": "TB1",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-2",
+      "opened_at": "2026-04-01T09:00:00+00:00"
+    },
+    {
+      "ticket_id": "TC1",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-3",
+      "opened_at": "2026-04-01T11:00:00+02:00"
+    },
+    {
+      "ticket_id": "TC2",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-3",
+      "opened_at": "2026-04-01T09:05:00+00:00"
+    },
+    {
+      "ticket_id": "TD1",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-4",
+      "opened_at": "2026-04-01T11:00:00+02:00"
+    },
+    {
+      "ticket_id": "TD2",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-4",
+      "opened_at": "2026-04-01T04:00:00-05:00"
+    },
+    {
+      "ticket_id": "TF1",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-5",
+      "opened_at": "2026-04-01T09:00:00+00:00"
+    },
+    {
+      "ticket_id": "TG1",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-6",
+      "opened_at": "2026-04-01T09:00:00+00:00"
+    },
+    {
+      "ticket_id": "TG2",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-6",
+      "opened_at": "2026-04-01T10:00:00+00:00"
+    },
+    {
+      "ticket_id": "TE1",
+      "lot_id": "LOT-B",
+      "site_id": "SITE-1",
+      "opened_at": "2026-04-01T09:00:00+00:00"
+    }
+  ],
+  "checkins": [
+    {
+      "checkin_id": "CA1",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-1",
+      "vendor_id": "V1",
+      "arrived_at": "2026-04-01T09:06:00+00:00"
+    },
+    {
+      "checkin_id": "CB1",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-2",
+      "vendor_id": "V1",
+      "arrived_at": "2026-04-01T09:02:00+00:00"
+    },
+    {
+      "checkin_id": "CB2",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-2",
+      "vendor_id": "V1",
+      "arrived_at": "2026-04-01T09:04:00+00:00"
+    },
+    {
+      "checkin_id": "CC1",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-3",
+      "vendor_id": "V1",
+      "arrived_at": "2026-04-01T09:01:00+00:00"
+    },
+    {
+      "checkin_id": "CC2",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-3",
+      "vendor_id": "V1",
+      "arrived_at": "2026-04-01T09:08:00+00:00"
+    },
+    {
+      "checkin_id": "CD1",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-4",
+      "vendor_id": "V1",
+      "arrived_at": "2026-04-01T10:01:00+01:00"
+    },
+    {
+      "checkin_id": "CD2",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-4",
+      "vendor_id": "V1",
+      "arrived_at": "2026-04-01T02:01:00-07:00"
+    },
+    {
+      "checkin_id": "CF1",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-5",
+      "vendor_id": "V1",
+      "arrived_at": "2026-04-01T09:03:00+00:00"
+    },
+    {
+      "checkin_id": "CF2",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-5",
+      "vendor_id": "V1",
+      "arrived_at": "2026-04-01T09:10:00+00:00"
+    },
+    {
+      "checkin_id": "CG1",
+      "lot_id": "LOT-A",
+      "site_id": "SITE-6",
+      "vendor_id": "V1",
+      "arrived_at": "2026-04-01T09:10:00+00:00"
+    },
+    {
+      "checkin_id": "CE1",
+      "lot_id": "LOT-B",
+      "site_id": "SITE-1",
+      "vendor_id": "V2",
+      "arrived_at": "2026-04-01T09:04:00+00:00"
+    }
+  ]
+}
