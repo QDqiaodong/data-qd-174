@@ -16,7 +16,18 @@ def main():
         with target.open("x") as f:
             json.dump(result, f, indent=2)
             f.write("\n")
-        print(json.dumps({"lots": len(result["lots"]), "awarded": result["awarded"]}, sort_keys=True))
+        print(
+            json.dumps(
+                {
+                    "lots": len(result["lots"]),
+                    "awarded": result["awarded"],
+                    "package_budget_cents": result["package"]["budget_cents"],
+                    "awarded_total_cents": result["package"]["awarded_total_cents"],
+                    "remaining_cents": result["package"]["remaining_cents"],
+                },
+                sort_keys=True,
+            )
+        )
     except (OSError, ValueError, KeyError, TypeError) as exc:
         p.exit(2, f"bid-review: {exc}\n")
 
