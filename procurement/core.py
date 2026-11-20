@@ -1,6 +1,15 @@
 import re
 from datetime import date, datetime
 
+from .qualification import (
+    QualificationError,
+    evidence_entry,
+    parse_as_of,
+    validate_qualification,
+    verify_document,
+    visible_credentials,
+)
+
 _DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
@@ -158,7 +167,18 @@ def _selection_reasons(offer_row, lot, selection, total, budget, lots, vendors):
     return reasons
 
 
-def review(data):
+def review(data, qualification=None, qualification_as_of=None):
+    """Review one procurement package.
+
+    ``qualification`` and ``qualification_as_of`` are optional and must be
+    supplied together.  Without them the result is exactly the historical
+    review output; no qualification fields are added.
+    """
+    if (qualification is None) != (qualification_as_of is None):
+        raise QualificationError(
+            "qualification and qualification_as_of must be provided together"
+        )
+    qualification_enabled = qualification is not None
     if not isinstance(data, dict):
         raise ValueError("input must be a JSON object")
     for key in ("lots", "offers", "vendors"):
@@ -186,6 +206,15 @@ def review(data):
             f"vendor {vendor_id} concurrent_lot_capacity",
         )
         vendors[vendor_id] = {"id": vendor_id, "concurrent_lot_capacity": capacity}
+
+    as_of = None
+    as_of_text = None
+    credential_index = None
+    if qualification_enabled:
+        as_of, as_of_text = parse_as_of(qualification_as_of)
+        credential_index = visible_credentials(
+            validate_qualification(qualification, vendors), as_of
+        )
 
     lots = {}
     for lot in data["lots"]:
@@ -229,12 +258,27 @@ def review(data):
         reasons = []
         if submitted > lot["deadline"]:
             reasons.append("late")
-        missing = sorted(
-            lot["required_documents"]
-            - set(_required(offer, "documents", f"offer {offer_id}"))
-        )
+        documents = _required(offer, "documents", f"offer {offer_id}")
+        missing = sorted(lot["required_documents"] - set(documents))
         if missing:
             reasons.append("missing_documents:" + ",".join(missing))
+
+        qualification_evidence = []
+        if qualification_enabled:
+            declared_required = set(documents) & lot["required_documents"]
+            unverified = []
+            for code in sorted(declared_required):
+                credential, failure = verify_document(
+                    credential_index, vendor_id, code, submitted
+                )
+                qualification_evidence.append(
+                    evidence_entry(code, credential, failure)
+                )
+                if failure is not None:
+                    unverified.append(code)
+            if unverified:
+                reasons.append("unverified_documents:" + ",".join(unverified))
+
         if price > lot["budget_cents"]:
             reasons.append("over_budget")
         grouped[lot_id].append(
@@ -247,6 +291,7 @@ def review(data):
                 "reasons": reasons,
                 "service_start": lot["service_start"],
                 "service_end": lot["service_end"],
+                "qualification_evidence": qualification_evidence,
             }
         )
 
@@ -267,23 +312,24 @@ def review(data):
         output_rows = []
         for row in rows:
             awarded = row is chosen
-            output_rows.append(
-                {
-                    "offer_id": row["offer_id"],
-                    "vendor_id": row["vendor_id"],
-                    "price_cents": row["price_cents"],
-                    "eligible": row["eligible"],
-                    "reasons": row["reasons"],
-                    "awarded": awarded,
-                    "selection_reasons": (
-                        []
-                        if awarded
-                        else _selection_reasons(
-                            row, lot, selection, total, budget, lots, vendors
-                        )
-                    ),
-                }
-            )
+            output_row = {
+                "offer_id": row["offer_id"],
+                "vendor_id": row["vendor_id"],
+                "price_cents": row["price_cents"],
+                "eligible": row["eligible"],
+                "reasons": row["reasons"],
+                "awarded": awarded,
+                "selection_reasons": (
+                    []
+                    if awarded
+                    else _selection_reasons(
+                        row, lot, selection, total, budget, lots, vendors
+                    )
+                ),
+            }
+            if qualification_enabled:
+                output_row["qualification_evidence"] = row["qualification_evidence"]
+            output_rows.append(output_row)
         result_lots.append(
             {
                 "lot_id": lot_id,
@@ -319,7 +365,7 @@ def review(data):
         )
 
     awarded_count = sum(selection.get(lot_id) is not None for lot_id in lot_ids)
-    return {
+    result = {
         "lots": result_lots,
         "awarded": awarded_count,
         "package": {
@@ -331,3 +377,7 @@ def review(data):
             "vendors": vendor_summary,
         },
     }
+    if qualification_enabled:
+        result["qualification_enabled"] = True
+        result["qualification_as_of"] = as_of_text
+    return result

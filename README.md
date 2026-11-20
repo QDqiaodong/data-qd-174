@@ -25,6 +25,16 @@ Input adds `package_budget_cents` and `vendors` to the existing `lots` and `offe
 
 Eligibility and selection are reported separately: an eligible offer excluded by package budget or vendor capacity keeps `eligible: true` with empty `reasons` and gains a `selection_reasons` entry. The `package` block reports the budget, awarded total, remainder, and each vendor's peak concurrent lots against capacity.
 
+Bid review can additionally verify supplier qualification evidence from a local, buyer-exported revision history:
+
+```sh
+.venv/bin/bid-review --input fixtures/qualification/package.json --output run/qualified.json \
+  --qualification-file fixtures/qualification/qualification.json \
+  --qualification-as-of 2026-03-05T00:00:00+00:00
+```
+
+Both qualification flags are optional and must be supplied together; omitting them preserves the original behaviour exactly. A declared required code that no active credential proves at the offer's submission instant makes the offer ineligible with `unverified_documents:<codes>` and per-code `qualification_evidence`. See `docs/contract.md` for the full qualification contract.
+
 Fixture data is synthetic. This tool performs mechanical checks only and is not a legal procurement decision. MIT licensed.
 
 Fixture summary: 2 lots reviewed, shared package budget 60,000 cents, 1 eligible award at 42,000 cents (18,000 remaining).

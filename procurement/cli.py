@@ -1,21 +1,35 @@
 import argparse
 import json
 from pathlib import Path
+
 from .core import review
+from .qualification import QualificationError, load_json_file
 
 
-def main():
-    p = argparse.ArgumentParser()
+def main(argv=None):
+    p = argparse.ArgumentParser(prog="bid-review")
     p.add_argument("--input", required=True)
     p.add_argument("--output", required=True)
-    a = p.parse_args()
+    p.add_argument("--qualification-file")
+    p.add_argument("--qualification-as-of")
+    a = p.parse_args(argv)
     try:
-        result = review(json.loads(Path(a.input).read_text()))
+        package = load_json_file(a.input)
+        qualification = None
+        if a.qualification_file is not None and a.qualification_as_of is not None:
+            qualification = load_json_file(a.qualification_file)
+        elif a.qualification_file is not None or a.qualification_as_of is not None:
+            raise QualificationError(
+                "--qualification-file and --qualification-as-of must be used together"
+            )
+        result = review(package, qualification, a.qualification_as_of)
+        # Serialise before touching the filesystem so an input or output-shape
+        # error can never create a partial result file.
+        payload = json.dumps(result, indent=2) + "\n"
         target = Path(a.output)
         target.parent.mkdir(parents=True, exist_ok=True)
         with target.open("x") as f:
-            json.dump(result, f, indent=2)
-            f.write("\n")
+            f.write(payload)
         print(
             json.dumps(
                 {
